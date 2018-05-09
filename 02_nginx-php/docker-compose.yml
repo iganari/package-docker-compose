@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  app:
+    build: ./app/
+    container_name: nginx-php_app
+    volumes:
+      - ./data/var/www/html:/var/www/html
+  web:
+    build: ./web/
+    container_name: nginx-php_web
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    volumes:
+      - ./data/var/www/html:/var/www/html
+      - ./logs/nginx:/var/log/nginx
