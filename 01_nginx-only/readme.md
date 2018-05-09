@@ -1,12 +1,11 @@
 # nginx only
 
-## 起動方法
+## compose build script
 
 ```
 sh build.sh
 ```
 
-
-## サンプルページ
+## sanmple page resource
 
 http://www.coolwebwindow.com/template/private.php
