@@ -6,6 +6,11 @@
 
 + docker-composeの設定サンプル
 
+## 注意点
+
++ docker for Macだと権限の問題が大きいのでなるべく他のOSでやるとよい
+
+
 ## 参考URL
 
 
