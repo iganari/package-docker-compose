@@ -1,0 +1,13 @@
+---
+#
+# servers-vault.yml
+#
+
+- hosts: vagrant-local
+  roles:
+    - role: user
+      tags: user
+    # - role: mysql57
+    #   tags: mysql57
+    # - role: mysql-users
+    #   tags: mysql-users

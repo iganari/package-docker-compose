@@ -1,0 +1,41 @@
+---
+#
+# roles/python3/tasks/main.yml
+#
+
+- name: install rpm of ius-release
+  yum:
+    name: https://centos7.iuscommunity.org/ius-release.rpm
+    update_cache: yes
+    state: present
+
+- name: disable auto option
+  replace:
+    dest: /etc/yum.repos.d/{{ item }}
+    regexp: enabled=1
+    replace: enabled=0
+  with_items:
+  - ius-archive.repo
+  - ius-dev.repo
+  - ius-testing.repo
+  - ius.repo 
+
+- name: python 3.6 
+  yum:
+    name: "{{ item }}"
+    update_cache: yes
+    enablerepo: ius
+  with_items:
+  - python36u
+  - python36u-libs
+  - python36u-devel
+  - python36u-pip
+
+- name: launch symlink
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  with_items:
+  - { src: '/usr/bin/python3.6', dest: '/usr/bin/python3' }
+  - { src: '/usr/bin/pip3.6', dest: '/usr/bin/pip3' }

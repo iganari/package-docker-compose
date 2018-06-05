@@ -1,0 +1,2 @@
+Defaults:dummy_user !requiretty
+dummy_user ALL=(ALL) NOPASSWD: ALL

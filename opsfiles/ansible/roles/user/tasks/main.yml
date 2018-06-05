@@ -1,0 +1,145 @@
+---
+#
+# roles/user/tasks/main.yml
+#
+
+##################################################
+##
+## for active group
+##
+
+### create group
+- name: create active group
+  group:
+    name: "{{item.group_name }}"
+    gid: "{{ item.group_id }}"
+    state: present
+  with_items:
+  - "{{ active_groups }}"
+
+- name: create operation directory
+  file:
+    state: directory
+    path: /usr/local/{{ item.group_name }}
+    owner: root 
+    group: root 
+    mode: 0777
+  with_items:
+  - "{{ active_users }}"
+
+##################################################
+##
+## for active user
+##
+
+### create users
+- name: create active user
+  user:
+    name: "{{ item.user_name }}"
+    group: "{{ item.group_name }}"
+    uid: "{{ item.user_id }}"
+    password: "{{ item.user_password | password_hash('sha512') }}"
+    shell: "{{ item.shell }}"
+    move_home: "{{ item.move_home }}"
+    home: "{{ item.user_home }}"
+    state: present
+  with_items:
+  - "{{ active_users }}"
+
+### setting sudoers
+- name: copy sudoers file
+  copy:
+    src: roles/user/files/etc/sudoers.d/{{ item.user_name }}
+    dest: /etc/sudoers.d/{{ item.user_name }}
+    mode: 0644
+  with_items:
+  - "{{ active_users }}"
+
+### setting ssh config
+- name: mkdir '.ssh'
+  file:
+    state: directory
+    path: /{{ item.user_home }}/.ssh
+    owner: "{{ item.user_name }}"
+    group: "{{ item.group_name }}"
+    mode: 0700
+  with_items:
+  - "{{ active_users }}"
+
+- name: copy ssh setting
+  copy:
+    src: roles/user/files/{{ item.user_home }}/_ssh/
+    dest: /{{ item.user_home }}/.ssh/
+    owner: "{{ item.user_name }}"
+    group: "{{ item.group_name }}"
+    mode: 0600
+    force: yes
+  with_items:
+  - "{{ active_users }}"
+
+- name: copy bash setting
+  copy:
+    src: roles/user/files/{{ item.user_home }}/_bashrc
+    dest: /{{ item.user_home }}/.bashrc
+    owner: "{{ item.user_name }}"
+    group: "{{ item.group_name }}"
+    mode: 0644
+    force: yes
+  with_items:
+  - "{{ active_users }}"
+
+# - name: create ops directory
+#   file:
+#     state: directory
+#     path: /usr/local/{{ item.user_name }}
+#     owner: "{{ item.user_name }}"
+#     group: "{{ item.group_name }}"
+#     mode: 0744
+#   with_items:
+#   - "{{ active_users }}"
+
+##################################################
+##
+## for inactive users
+##
+
+### delete inactive users
+- name: delete inactive user
+  user: 
+    name: "{{ item.user_name }}"
+    remove: yes
+    force: yes
+    state: absent
+  with_items:
+  - "{{ inactive_users }}"
+
+### delete file
+- name: delete home of inactive user
+  file: 
+    state: absent
+    path: "{{ item.user_home}}"
+  with_items:
+  - "{{ inactive_users }}"
+
+
+##################################################
+##
+## for inactive group
+##
+
+### delete group
+- name: delete group of inactive group
+  group:
+    name: "{{ item.group_name }}"
+    state: absent
+  with_items:
+  - "{{ inactive_groups }}"
+
+### delete ops directory
+- name: delete directory of operation
+  file:
+    path: /usr/local/{{ item.group_name }}
+    state: absent
+  with_items:
+  - "{{ inactive_groups }}"
+  ignore_errors: true
