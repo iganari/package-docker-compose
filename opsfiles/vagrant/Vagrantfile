@@ -2,8 +2,8 @@ $script = <<SCRIPT
   cd /develop/pkg-docker-compose/opsfiles/ansible
   ls -la
   /bin/bash provision.sh
-  # ansible-playbook -i inventoryfile/$1 servers.yml -l $1
-  # ansible-playbook -i inventoryfile/$1 servers-vault.yml -l $1 --vault-password-file /root/.vault_password_file
+  ansible-playbook -i inventoryfile/$1 servers.yml -l $1
+  ansible-playbook -i inventoryfile/$1 servers-vault.yml -l $1 --vault-password-file /root/.vault_password_file
   # rsync -a /develop/hejda-wp-movie /opt/ --exclude '/develop/hejda-wp-movie/opsfiles'
   # chown -R iganari.iganari /opt/hejda-wp-movie
   # gpasswd -a iganari docker
