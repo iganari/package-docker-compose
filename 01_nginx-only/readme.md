@@ -6,6 +6,6 @@
 sh build.sh
 ```
 
-## sanmple page resource
+## sample page resource
 
 http://www.coolwebwindow.com/template/private.php
