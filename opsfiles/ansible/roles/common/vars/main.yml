@@ -1,0 +1,7 @@
+---
+#
+# roles/common/vars/main.yml
+#
+
+common:
+  hostname: package-ansible-playbook

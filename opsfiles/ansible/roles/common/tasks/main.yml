@@ -1,0 +1,183 @@
+---
+#
+# roles/common/tasks/main.yml
+#
+
+
+- name: install packages
+  yum: 
+    name: "{{ item }}"
+    update_cache: yes
+    enablerepo: epel
+    state: latest
+  with_items:
+  - curl
+  - wget
+  - openssl
+  - tree
+  - telnet
+  - mlocate
+  - expect
+  - dstat
+  - vim
+  - git
+  - unzip
+  - htop
+  - nkf
+  - wget
+  - bash-completion
+  - bind-utils
+  - bzip2
+
+- name: install developer packages for git
+  yum: 
+    name: "{{ item }}"
+    update_cache: yes
+    enablerepo: epel
+    state: latest
+  with_items:
+  - gcc
+  - curl-devel
+  - expat-devel
+  - gettext-devel
+  - openssl-devel
+  - zlib-devel 
+  - perl-ExtUtils-MakeMaker
+  - nss
+  - libcurl
+
+- name: install developer packages for ruby
+  yum: 
+    name: "{{ item }}"
+    update_cache: yes
+    enablerepo: epel
+    state: latest
+  with_items:
+  - readline-devel
+
+- name: install developer packages for golang
+  yum: 
+    name: "{{ item }}"
+    update_cache: yes
+    enablerepo: epel
+    state: latest
+  with_items:
+  - fuse
+
+- name: change localtime to JST
+  file:
+    src: /usr/share/zoneinfo/Asia/Tokyo
+    dest: /etc/localtime
+    force: yes
+    state: link
+
+- name: setting locale
+  shell: echo 'LANG="ja_JP.utf8"' > /etc/locale.conf
+
+- name: stop unuse service
+  systemd: 
+    name: "{{ item }}"
+    state: stopped
+    daemon_reload: no
+    enabled: no
+  with_items:
+  - firewalld
+  - kdump
+  ignore_errors: true
+
+- name: stop unuse service (Only NetworkManager)
+  systemd: 
+    name: "{{ item }}"
+    state: stopped
+    daemon_reload: no
+    enabled: no
+  with_items:
+  - NetworkManager
+  when: platform != 'idcf'
+  ignore_errors: true
+ 
+- name: disable selinux (temp)
+  shell: setenforce 0
+  ignore_errors: true
+
+- name: disable selinux (permanently)
+  lineinfile: 
+    dest: '/etc/sysconfig/selinux'
+    state: present
+    backrefs: yes
+    regexp: "{{ item }}"
+    line: 'SELINUX=disabled'
+  with_items:
+  - SELINUX=enforcing
+  - SELINUX=permissive
+  ignore_errors: true
+
+- name: setting ssh config
+  copy:
+    src: roles/common/templates/etc/ssh/sshd_config
+    dest: /etc/ssh/sshd_config
+    force: yes
+    backup: yes
+    group: root
+    owner: root
+    mode: 0600
+
+- name: production basic directory
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0777
+    group: root
+    owner: root
+    force: yes
+  with_items:
+  - /srv
+  - /usr/share/data
+  - /opt
+
+# - name: copy rc.local for staging
+#   copy:
+#     src: roles/common/templates/etc/rc.d/rc.local-{{ node }}.j2
+#     dest: /etc/rc.d/rc.local
+#     force: yes
+#     backup: yes
+#     group: root
+#     owner: root
+#     mode: 0755
+#   when: node == "staging"
+
+# - name: copy rc.local for production
+#   copy:
+#     src: roles/common/templates/etc/rc.d/rc.local-{{ node }}.j2
+#     dest: /etc/rc.d/rc.local
+#     force: yes
+#     backup: yes
+#     group: root
+#     owner: root
+#     mode: 0755
+#   when: node == "production"
+
+- name: change servers hostname
+  shell: echo "{{ common.hostname }}" > /etc/hostname
+
+- name: change servers hostname (temp)
+  shell: hostname "{{ common.hostname }}"
+  ignore_errors: true
+
+- name: change servers hostname
+  shell: echo "{{ hostname }}" > /etc/hostname
+  ignore_errors: true
+
+- name: change servers hostname (temp)
+  shell: hostname "{{ hostname }}"
+  ignore_errors: true
+
+- name: copy encrypt password
+  copy:
+    src: root/_vault_password_file
+    dest: /root/.vault_password_file
+    force: yes
+    backup: yes
+    group: root
+    owner: root
+    mode: 0600
