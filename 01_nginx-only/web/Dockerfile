@@ -1,4 +1,6 @@
-FROM nginx:1.13.5-alpine
+ARG _TAG='1.15.4-alpine'
+FROM nginx:${_TAG}
+# https://hub.docker.com/_/nginx/
 
 MAINTAINER iganari
 
