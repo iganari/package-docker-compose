@@ -1,9 +1,18 @@
 version: '3.3'
 
 services:
+  app01:
+    build: ./app01/
+    container_name: app01-red
+    ports:
+      - "8011:80"
   lb:
     build: ./load-balancer/
     container_name: nginx-lb
     ports:
       - "8010:80"
-    
+    depends_on:
+      - app01
+    volumes:
+      - ./load-balancer/etc/nginx/nginx.conf /etc/nginx.conf
+      - ./load-balancer/etc/nginx/conf.d     /etc/nginx/conf.d
