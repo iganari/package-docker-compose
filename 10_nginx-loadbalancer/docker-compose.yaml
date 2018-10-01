@@ -1,0 +1,9 @@
+version: '3.3'
+
+services:
+  lb:
+    build: ./load-balancer/
+    container_name: nginx-lb
+    ports:
+      - "8010:80"
+    
