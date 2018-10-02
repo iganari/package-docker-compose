@@ -10,6 +10,5 @@ RUN apk --update add tzdata && \
     apk del tzdata && \
     rm -rf /var/cache/apk/*
 
-# ADD NGINX config
-ADD ./etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
-ADD ./var/www/html /var/www/html
+# ADD ./etc/nginx/nginx.conf /etc/nginx/nginx.conf
+# ADD ./etc/nginx/conf.d     /etc/nginx/conf.d
