@@ -18,20 +18,19 @@ sh build.sh
 
 + load balancer
     + http://127.0.0.1:8010
-
-:warning: image wip
+    + app01, app02, app03を均等にバランシングします
 
 + app01-red
     + http://127.0.0.1:8011
 
-:warning: image wip
+![](./images/app01-red.png)
 
 + app01-blue
     + http://127.0.0.1:8011
 
-:warning: image wip
+![](./images/app02-blue.png)
 
 + app01-green
     + http://127.0.0.1:8011
     
-:warning: image wip
+![](./images/app03-green.png)
