@@ -40,13 +40,29 @@ sh build.sh
 ### docker-composeにて起動
 
 ```
-docker-compose -f docker-compose.scale.yml 
+docker-compose -f docker-compose.scale.yaml up -d
+```
+
+
+### スケールアウト
+
+```
+docker-compose -f docker-compose.scale.yaml up -d --scale app01=5
+```
+```
+$ docker-compose ps
+            Name                      Command          State          Ports        
+-----------------------------------------------------------------------------------
+10_nginx-loadbalancer_app01_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app01_2   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app01_3   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app01_4   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app01_5   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app02_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app03_1   nginx -g daemon off;   Up      80/tcp              
+nginx-lb                        nginx -g daemon off;   Up      0.0.0.0:8010->80/tcp
 ```
 
 
 ### スケールイン
-
-
-
-### スケールアウト
 
