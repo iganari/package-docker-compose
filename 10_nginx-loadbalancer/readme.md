@@ -4,7 +4,7 @@
 
 + nginxのロードバランサー機能を簡易テスト出来ます
 
-## 実行方法
+## [基本] 実行方法
 
 ### 起動とコマンドライン確認
 
@@ -34,3 +34,19 @@ sh build.sh
     + http://127.0.0.1:8011
     
 ![](./images/app03-green.png)
+
+## [応用] スケール
+
+### docker-composeにて起動
+
+```
+docker-compose -f docker-compose.scale.yml 
+```
+
+
+### スケールイン
+
+
+
+### スケールアウト
+
