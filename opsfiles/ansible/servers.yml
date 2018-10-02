@@ -1,0 +1,25 @@
+---
+#
+# server.yml
+#
+
+- hosts: vagrant-local
+  vars:
+    node: development
+    platform: vagrant
+    hostname: pkg-docker-compose
+  roles:
+    - role: common
+      tags: common
+    - role: python3
+      tags: python3
+    - role: git2x
+      tags: git2x
+    - role: vagrant
+      tags: vagrant
+    - role: jq
+      tags: jq
+    - role: docker
+      tags: docker
+    - role: docker-compose
+      tags: docker-compose

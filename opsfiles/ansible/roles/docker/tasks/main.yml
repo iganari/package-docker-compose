@@ -1,0 +1,15 @@
+---
+#
+# roles/docker/tasks/main.yml
+#
+
+- name: command make all
+  shell: curl -sSL https://get.docker.com/ | sh
+  warn: false
+
+- name: setting docker
+  systemd:
+    name: docker.service
+    state: restarted
+    daemon_reload: yes
+    enabled: yes

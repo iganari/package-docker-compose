@@ -1,0 +1,35 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+
+### for basic commnad with option
+alias    ls='ls -F'
+alias    ll='ls -la'
+alias    sl='ls -l'
+alias    dc='cd'
+alias    mv='mv -i'
+alias    cp='cp -i'
+alias mkdir='mkdir -p'
+alias     s='ssh'
+alias     e='exit'
+alias today='date '+%Y%m%d''
+alias     g='git'
+
+### for git
+alias     g='git'
+alias    gh='cat ~/.gitconfig'
+
+### for python
+alias p2='python'
+
+### for prompt
+export PS1="\[\033[1;35m\][\t][\u@\h \W]\\$\[\033[0m\] "
+
