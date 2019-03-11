@@ -17,8 +17,15 @@
 
 ## 注意点
 
-+ docker for Macだと権限の問題が大きいのでなるべく他のOSでやるとよい
++ docker for Macだと権限の問題が大きいのでなるべく他のOSでやるとです
 
+## 使用するデータに関して
+
++ 当レポジトリにおいては、下記を使用しています
+    + https://www.post.japanpost.jp/zipcode/dl/jigyosyo/index-zip.html
++ データを使用するに当たっての注意事項
+    + https://www.post.japanpost.jp/zipcode/dl/jigyosyo/readme.html
+    + 抜粋 `大口事業所個別番号データに限っては日本郵便株式会社は著作権を主張しません。自由に配布していただいて結構です。日本郵便株式会社への許諾も必要ありません。`
 
 ## 参考URL
 
