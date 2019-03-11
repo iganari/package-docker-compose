@@ -20,8 +20,8 @@ services:
     env_file: .env
     container_name: python-mysql-app
     volumes:
-      - ./:/ops/python-mysql
+      - ./:/opt/python-mysql
     tty: true
-    working_dir: '/ops/python-mysql'
+    working_dir: '/opt/python-mysql'
     depends_on:
       - db
