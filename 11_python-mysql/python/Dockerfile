@@ -10,7 +10,7 @@ RUN pip install -r /var/tmp/requirements.txt
 RUN apk update &&\
     apk add vim \
             mysql-client \
-            curl \
+            curl && \
     rm -rf /var/cache/apk/*
 
 ### ADD My vimrc
