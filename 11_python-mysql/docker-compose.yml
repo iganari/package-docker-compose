@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+
+  db:
+    build: ./mysql/
+    env_file: .env
+    container_name: python-mysql-db
+    # command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    # environment:
+    #   MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - ./mysql/files/etc/mysql/conf.d/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+      # - ./mysql/files/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+
+  app:
+    build: ./python/
+    env_file: .env
+    container_name: python-mysql-app
+    volumes:
+      - ./:/opt/python-mysql
+    tty: true
+    working_dir: '/opt/python-mysql'
+    depends_on:
+      - db
