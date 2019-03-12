@@ -36,6 +36,9 @@ jobs:
           name: debug 3
           command: "ls -la ~/.ssh"
       - run:
+          name: debug 4
+          command: "ssh -i ~/.ssh/id_rsa ssh@github.com"
+      - run:
           name: push readme-only branch
           command: "git push origin modify-readme-only"
 
