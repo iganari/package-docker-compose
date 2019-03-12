@@ -33,6 +33,9 @@ jobs:
           name: debug 2
           command: "git config -l"
       - run:
+          name: debug 3
+          command: "ls -la ~/.ssh"
+      - run:
           name: push readme-only branch
           command: "git push origin modify-readme-only"
 
