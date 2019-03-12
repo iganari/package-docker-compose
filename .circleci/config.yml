@@ -26,24 +26,24 @@ jobs:
       - run:
           name: merge ${CIRCLE_BRANCH}
           command: "git merge -m \"merge branch ${CIRCLE_BRANCH} in CircleCI\" origin ${CIRCLE_BRANCH}"
-      - run:
-          name: debug 1
-          command: "ls -la"
-      - run:
-          name: debug 2
-          command: "git config -l"
-      - run:
-          name: debug 3
-          command: "ls -la ~/.ssh"
-      - run:
-          name: debug 4
-          command: "cat ~/.ssh/config"
-      - run:
-          name: debug 5
-          command: "ssh git@github.com"
       # - run:
-      #     name: push readme-only branch
-      #     command: "git push origin modify-readme-only"
+      #     name: debug 1
+      #     command: "ls -la"
+      # - run:
+      #     name: debug 2
+      #     command: "git config -l"
+      # - run:
+      #     name: debug 3
+      #     command: "ls -la ~/.ssh"
+      # - run:
+      #     name: debug 4
+      #     command: "cat ~/.ssh/config"
+      # - run:
+      #     name: debug 5
+      #     command: "ssh git@github.com"
+      - run:
+          name: push readme-only branch
+          command: "git push origin modify-readme-only"
 
 workflows:
   version: 2
