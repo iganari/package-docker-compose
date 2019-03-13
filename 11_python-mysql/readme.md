@@ -33,6 +33,8 @@ docker exec -it python-mysql-app /bin/sh
 python --version
 ```
 ```
+### Ex
+
 # python --version
 Python 3.7.2
 ```
@@ -41,4 +43,20 @@ Python 3.7.2
 
 ```
 mysql -hdb -u${MYSQL_USER} ${MYSQL_DATABASE} -p${MYSQL_ROOT_PASSWORD}
+```
+```
+### Ex
+
+# mysql -hdb -u${MYSQL_USER} ${MYSQL_DATABASE} -p${MYSQL_ROOT_PASSWORD}
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.15 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [python-mysql]> exit
+Bye
+
 ```
