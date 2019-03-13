@@ -32,6 +32,7 @@ services:
       - "8010:80"
     depends_on:
       - app01
+      - app02
+      - app03
     volumes:
-      # - ./load-balancer/etc/nginx/nginx.conf /etc/nginx.conf
       - ./load-balancer/etc/nginx/conf.d:/etc/nginx/conf.d
