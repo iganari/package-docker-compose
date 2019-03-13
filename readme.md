@@ -1,7 +1,5 @@
 # Package ocker-compose
 
-# :warning: WIP :warning:
-
 ## 用途
 
 + docker-composeのサンプル集です
