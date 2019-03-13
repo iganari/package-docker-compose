@@ -15,7 +15,7 @@
 + [10_nginx-loadbalancer]
     + WIP
 + [11_python-mysql]
-    + WIP
+    + Python 3.x.y と MySQl 8.a.b のセットです
 
 ## 注意点
 
