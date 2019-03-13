@@ -60,5 +60,22 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 MySQL [python-mysql]> exit
 Bye
+```
 
+## その他
+
++ :whale: カレントディレクトリがDockerコンテナの `/opt/python-mysql` にマウントしてあります
+
+```
+# ls -1a /opt/python-mysql
+.
+..
+.env
+.env.sample
+.gitignore
+dcs.sh
+docker-compose.yml
+mysql
+python
+readme.md
 ```
