@@ -12,7 +12,7 @@
 + コマンド実行
 
 ```
-sh build.sh
+sh dcs.sh start
 ```
 
 ### ブラウザにて確認
