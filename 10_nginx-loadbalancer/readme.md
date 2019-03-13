@@ -101,3 +101,18 @@ $ docker-compose ps
 10_nginx-loadbalancer_app03_1   nginx -g daemon off;   Up      80/tcp              
 nginx-lb                        nginx -g daemon off;   Up      0.0.0.0:8010->80/tcp
 ```
+
++ `0` も可能
+
+```
+docker-compose -f docker-compose.scale.yml up -d --scale app01=0
+```
+```
+$ docker-compose ps
+            Name                      Command          State          Ports        
+-----------------------------------------------------------------------------------
+10_nginx-loadbalancer_app02_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app03_1   nginx -g daemon off;   Up      80/tcp              
+nginx-lb                        nginx -g daemon off;   Up      0.0.0.0:8010->80/tcp
+
+```
