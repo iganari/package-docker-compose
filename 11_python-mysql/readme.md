@@ -3,6 +3,7 @@
 ## 起動・確認方法
 
 + env ファイルの作成
+    + Docker Compose の[env_file](https://docs.docker.com/compose/environment-variables/)機能を使っています
 
 ```
 cp -a .env.sample .env
