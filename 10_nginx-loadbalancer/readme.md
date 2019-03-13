@@ -1,8 +1,9 @@
-# nginx-loadbalancer
+# Nginx loadbalancer
 
 ## 用途
 
-+ nginxのロードバランサー機能を簡易テスト出来ます
++ Nginxのロードバランサー機能を簡易テスト出来ます
++ docker-composeのスケール機能も試すことが出来ます
 
 ## [基本] 実行方法
 
