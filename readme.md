@@ -12,9 +12,9 @@
 + [02_nginx-php](https://github.com/iganari/package-docker-compose/tree/master/02_nginx-php)
     + alpineベースのNginxとaplineベースのPHP(php-fpm)のコンテナを利用したcompose
     + PHPのバージョンは7.2
-+ [10_nginx-loadbalancer]
++ [10_nginx-loadbalancer](https://github.com/iganari/package-docker-compose/tree/master/10_nginx-loadbalancer)
     + WIP
-+ [11_python-mysql]
++ [11_python-mysql](https://github.com/iganari/package-docker-compose/tree/master/11_python-mysql)
     + Python 3.x.y と MySQl 8.a.b のセットです
 
 ## 注意点

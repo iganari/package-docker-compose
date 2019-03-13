@@ -1,4 +1,4 @@
-ARG _TAG='1.15.4-alpine'
+ARG _TAG='1.15.9-alpine'
 FROM nginx:${_TAG}
 # https://hub.docker.com/_/nginx/
 

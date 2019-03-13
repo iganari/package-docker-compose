@@ -1,0 +1,39 @@
+version: '3.3'
+
+services:
+  app01:
+    build: ./app01/
+    container_name: app01-red
+    ports:
+      - "8011:80"
+    volumes:
+      - ./app01/srv/www/html:/srv/www/html
+      - ./app01/etc/nginx/conf.d:/etc/nginx/conf.d
+  app02:
+    build: ./app02/
+    container_name: app02-blue
+    ports:
+      - "8012:80"
+    volumes:
+      - ./app02/srv/www/html:/srv/www/html
+      - ./app02/etc/nginx/conf.d:/etc/nginx/conf.d
+  app03:
+    build: ./app03/
+    container_name: app03-green
+    ports:
+      - "8013:80"
+    volumes:
+      - ./app03/srv/www/html:/srv/www/html
+      - ./app03/etc/nginx/conf.d:/etc/nginx/conf.d
+  lb:
+    build: ./load-balancer/
+    container_name: nginx-lb
+    ports:
+      - "8010:80"
+    depends_on:
+      - app01
+      - app02
+      - app03
+    volumes:
+      # - ./load-balancer/etc/nginx/nginx.conf /etc/nginx.conf
+      - ./load-balancer/etc/nginx/conf.d:/etc/nginx/conf.d

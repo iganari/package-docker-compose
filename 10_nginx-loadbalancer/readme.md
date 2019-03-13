@@ -1,17 +1,24 @@
-# nginx-loadbalancer
+# Nginx loadbalancer
 
 ## 用途
 
-+ nginxのロードバランサー機能を簡易テスト出来ます
++ Nginxのロードバランサー機能を簡易テスト出来ます
++ docker-composeのスケール機能も試すことが出来ます
 
 ## [基本] 実行方法
 
-### 起動とコマンドライン確認
+### 起動と確認のコマンドライン
 
-+ コマンド実行
++ 起動コマンドライン
 
 ```
-sh build.sh
+sh dcs.sh start
+```
+
++ ステータス確認コマンドライン
+
+```
+ sh dcs.sh status
 ```
 
 ### ブラウザにて確認
@@ -39,15 +46,31 @@ sh build.sh
 
 ### docker-composeにて起動
 
++ 起動コマンドライン
+
 ```
-docker-compose -f docker-compose.scale.yaml up -d
+docker-compose -f docker-compose.scale.yml up -d
 ```
 
++ ステータス確認コマンドライン
+
+```
+docker-compose ps
+```
+```
+$ docker-compose ps
+            Name                      Command          State          Ports        
+-----------------------------------------------------------------------------------
+10_nginx-loadbalancer_app01_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app02_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app03_1   nginx -g daemon off;   Up      80/tcp              
+nginx-lb                        nginx -g daemon off;   Up      0.0.0.0:8010->80/tcp
+```
 
 ### スケールアウト
 
 ```
-docker-compose -f docker-compose.scale.yaml up -d --scale app01=5
+docker-compose -f docker-compose.scale.yml up -d --scale app01=5
 ```
 ```
 $ docker-compose ps
@@ -63,6 +86,32 @@ $ docker-compose ps
 nginx-lb                        nginx -g daemon off;   Up      0.0.0.0:8010->80/tcp
 ```
 
-
 ### スケールイン
 
+```
+docker-compose -f docker-compose.scale.yml up -d --scale app01=2
+```
+```
+$ docker-compose ps
+            Name                      Command          State          Ports        
+-----------------------------------------------------------------------------------
+10_nginx-loadbalancer_app01_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app01_2   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app02_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app03_1   nginx -g daemon off;   Up      80/tcp              
+nginx-lb                        nginx -g daemon off;   Up      0.0.0.0:8010->80/tcp
+```
+
++ `0` も可能
+
+```
+docker-compose -f docker-compose.scale.yml up -d --scale app01=0
+```
+```
+$ docker-compose ps
+            Name                      Command          State          Ports        
+-----------------------------------------------------------------------------------
+10_nginx-loadbalancer_app02_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app03_1   nginx -g daemon off;   Up      80/tcp              
+nginx-lb                        nginx -g daemon off;   Up      0.0.0.0:8010->80/tcp
+```
