@@ -2,6 +2,13 @@
 
 ## 使い方
 
++ env ファイルの作成
+
+```
+cp -a .env.sample .env
+vim .env     ### ここで、 '_PASSWORD' を変更して下さい( 必要なら、databse_name も変更して下さい)
+```
+
 + Dockerコンテナの起動
 
 ```
