@@ -65,7 +65,7 @@ Bye
 
 ## その他
 
-+ :whale: カレントディレクトリがDockerコンテナの `/opt/python-mysql` にマウントしてあります
++ :whale: カレントディレクトリがDockerコンテナの `/opt/python-mysql` にマウントしてあります(app, dbともに)
 
 ```
 # ls -1a /opt/python-mysql
