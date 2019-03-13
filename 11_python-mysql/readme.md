@@ -1,6 +1,6 @@
 # Python - MySQL
 
-## 使い方
+## 起動・確認方法
 
 + env ファイルの作成
 
@@ -20,6 +20,8 @@ sh dcs.sh start
 ```
 sh dcs.sh status
 ```
+
+## 操作方法
 
 + Python用のDockerコンテナにログイン ---> :whale:
 
