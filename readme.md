@@ -1,10 +1,10 @@
-# package-docker-compose
+# Package ocker-compose
 
 # :warning: WIP :warning:
 
 ## 用途
 
-+ docker-composeの設定サンプル
++ docker-composeのサンプル集です
 
 ## 説明
 
@@ -14,10 +14,14 @@
 + [02_nginx-php](https://github.com/iganari/package-docker-compose/tree/master/02_nginx-php)
     + alpineベースのNginxとaplineベースのPHP(php-fpm)のコンテナを利用したcompose
     + PHPのバージョンは7.2
++ [10_nginx-loadbalancer]
+    + WIP
++ [11_python-mysql]
+    + WIP
 
 ## 注意点
 
-+ docker for Macだと権限の問題が大きいのでなるべく他のOSでやるとです
++ なるべく、素のDocker Engine, docker-compose をご用意下さい 
 
 ## 使用するデータに関して
 
