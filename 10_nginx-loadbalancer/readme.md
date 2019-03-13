@@ -46,15 +46,31 @@ sh dcs.sh start
 
 ### docker-composeにて起動
 
++ 起動コマンドライン
+
 ```
-docker-compose -f docker-compose.scale.yaml up -d
+docker-compose -f docker-compose.scale.yml up -d
 ```
 
++ ステータス確認コマンドライン
+
+```
+docker-compose ps
+```
+```
+$ docker-compose ps
+            Name                      Command          State          Ports        
+-----------------------------------------------------------------------------------
+10_nginx-loadbalancer_app01_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app02_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app03_1   nginx -g daemon off;   Up      80/tcp              
+nginx-lb                        nginx -g daemon off;   Up      0.0.0.0:8010->80/tcp
+```
 
 ### スケールアウト
 
 ```
-docker-compose -f docker-compose.scale.yaml up -d --scale app01=5
+docker-compose -f docker-compose.scale.yml up -d --scale app01=5
 ```
 ```
 $ docker-compose ps
@@ -70,6 +86,32 @@ $ docker-compose ps
 nginx-lb                        nginx -g daemon off;   Up      0.0.0.0:8010->80/tcp
 ```
 
-
 ### スケールイン
 
+```
+docker-compose -f docker-compose.scale.yml up -d --scale app01=2
+```
+```
+$ docker-compose ps
+            Name                      Command          State          Ports        
+-----------------------------------------------------------------------------------
+10_nginx-loadbalancer_app01_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app01_2   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app02_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app03_1   nginx -g daemon off;   Up      80/tcp              
+nginx-lb                        nginx -g daemon off;   Up      0.0.0.0:8010->80/tcp
+```
+
++ `0` も可能
+
+```
+docker-compose -f docker-compose.scale.yml up -d --scale app01=0
+```
+```
+$ docker-compose ps
+            Name                      Command          State          Ports        
+-----------------------------------------------------------------------------------
+10_nginx-loadbalancer_app02_1   nginx -g daemon off;   Up      80/tcp              
+10_nginx-loadbalancer_app03_1   nginx -g daemon off;   Up      80/tcp              
+nginx-lb                        nginx -g daemon off;   Up      0.0.0.0:8010->80/tcp
+```
