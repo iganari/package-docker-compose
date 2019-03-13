@@ -20,3 +20,25 @@ sh dcs.sh start
 ```
 sh dcs.sh status
 ```
+
++ Python用のDockerコンテナにログイン ---> :whale:
+
+```
+docker exec -it python-mysql-app /bin/sh
+```
+
++ :whale: Pythonのバージョンの確認
+
+```
+python --version
+```
+```
+# python --version
+Python 3.7.2
+```
+
++ :whale: Python用のDockerコンテナから、MySQL用のDockerコンテナのMySQLにログイン
+
+```
+mysql -hdb -u${MYSQL_USER} ${MYSQL_DATABASE} -p${MYSQL_ROOT_PASSWORD}
+```
