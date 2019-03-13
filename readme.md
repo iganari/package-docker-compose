@@ -2,7 +2,7 @@
 
 ## 用途
 
-+ docker-composeのサンプル集です
++ Docker Compose のサンプル集です
 
 ## 説明
 
