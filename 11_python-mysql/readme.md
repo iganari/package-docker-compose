@@ -6,8 +6,8 @@
     + Docker Compose の[env_file](https://docs.docker.com/compose/environment-variables/)機能を使っています
 
 ```
-cp -a .env.sample .env
-vim .env     ### ここで、 '_PASSWORD' を変更して下さい( 必要なら、databse_name も変更して下さい)
+cp -a .python-mysql.env.sample .python-mysql.env
+vim .python-mysql.env     ### ここで、 '_PASSWORD' を変更して下さい( 必要なら、databse_name も変更して下さい)
 ```
 
 + Dockerコンテナの起動
