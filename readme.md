@@ -2,7 +2,7 @@
 
 ## 用途
 
-+ docker-composeのサンプル集です
++ Docker Compose のサンプル集です
 
 ## 説明
 
@@ -19,7 +19,7 @@
 
 ## 注意点
 
-+ なるべく、素のDocker Engine, docker-compose をご用意下さい 
++ なるべく、素のDocker Engine, Docker Compose をご用意下さい 
 
 ## 使用するデータに関して
 
