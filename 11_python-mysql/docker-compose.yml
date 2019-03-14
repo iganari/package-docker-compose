@@ -9,7 +9,8 @@ services:
       - .python-mysql.env
     container_name: python-mysql-db
     # command: --default-authentication-plugin=mysql_native_password
-    restart: always
+    restart: 
+      - always
     # environment:
     #   MYSQL_ROOT_PASSWORD: example
     volumes:
