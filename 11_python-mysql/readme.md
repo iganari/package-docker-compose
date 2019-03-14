@@ -71,12 +71,13 @@ Bye
 # ls -1a /opt/python-mysql
 .
 ..
-.env
-.env.sample
 .gitignore
+.python-mysql.env
+.python-mysql.env.sample
 dcs.sh
 docker-compose.yml
 mysql
 python
 readme.md
+
 ```
