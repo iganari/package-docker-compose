@@ -3,7 +3,8 @@ version: '3.3'
 services:
 
   db:
-    build: ./mysql/
+    build: 
+      - ./mysql/
     env_file: 
       - .python-mysql.env
     container_name: python-mysql-db
@@ -17,13 +18,17 @@ services:
 
 
   app:
-    build: ./python/
+    build: 
+      - ./python/
     env_file:
       - .python-mysql.env
-    container_name: python-mysql-app
+    container_name: 
+      - python-mysql-app
     volumes:
       - ./:/opt/python-mysql
-    tty: true
-    working_dir: '/opt/python-mysql'
+    tty: 
+      - true
+    working_dir: 
+      - '/opt/python-mysql'
     depends_on:
       - db
