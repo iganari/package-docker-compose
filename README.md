@@ -19,7 +19,7 @@
 
 ## 注意点
 
-+ なるべく、素のDocker Engine, Docker Compose をご用意下さい 
++ なるべく、最新のDocker Engine, Docker Compose をご用意下さい 
 
 ## 使用するデータに関して
 
