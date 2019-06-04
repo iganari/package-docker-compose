@@ -16,10 +16,8 @@ docker-compose up -d
 ```
 
 + アクセス
+    + https://board.iganari.com
     + :fire: 自己証明書を使っているため、ブラウザにて除外の操作が必要です
-
-https://board.iganari.com
-
 
 
 + Grafana の初期ユーザ名とパスワード
