@@ -12,11 +12,11 @@ docker-compose up -d
     + `/etc/hosts` を直接編集するか、 hosts を変更するアプリケーションにて、以下の設定をして下さい
 
 ```
-127.0.0.1 board.iganari.com
+127.0.0.1 board.iganari.localdev
 ```
 
 + アクセス
-    + https://board.iganari.com
+    + https://board.iganari.localdev
     + :fire: 自己証明書を使っているため、ブラウザにて除外の操作が必要です
 
 
