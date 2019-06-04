@@ -9,7 +9,7 @@ docker-compose up -d
 ```
 
 + HOSTS の設定
-    + `/etc/hoosts` を直接編集するか、 HOSTS を変更するアプリケーションにて、以下の設定をして下さい
+    + `/etc/hosts` を直接編集するか、 hosts を変更するアプリケーションにて、以下の設定をして下さい
 
 ```
 127.0.0.1 board.iganari.com
