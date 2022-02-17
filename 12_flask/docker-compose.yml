@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+
+  pkg-dc-flask-db:
+    build: ./mysql/
+    env_file: 
+      - .flask.env
+    container_name: pkg-dc-flask-db
+    # command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    # environment:
+    #   MYSQL_ROOT_PASSWORD: example
+    ports:
+      - "127.0.0.1:13306:3306"
+    volumes:
+      - ./mysql/files/etc/mysql/conf.d/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+      # - ./mysql/files/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+  # pkg-dc-flask-app:
+  #   build: ./python/
+  #   env_file:
+  #     - .flask.env
+  #   container_name: pkg-dc-flask-app
+  #   volumes:
+  #     - ./:/opt/python-mysql
+  #   tty: true
+  #   working_dir: '/opt/python-mysql'
+  #   depends_on:
+  #     - db
