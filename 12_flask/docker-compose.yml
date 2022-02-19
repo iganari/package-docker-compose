@@ -4,7 +4,7 @@ services:
 
   pkg-dc-flask-db:
     build: ./mysql/
-    env_file: 
+    env_file:
       - .flask.env
     container_name: pkg-dc-flask-db
     # command: --default-authentication-plugin=mysql_native_password
