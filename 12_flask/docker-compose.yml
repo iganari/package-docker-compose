@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.9'
 
 services:
 
@@ -14,6 +14,8 @@ services:
     volumes:
       - ./mysql/files/etc/mysql/conf.d/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
       # - ./mysql/files/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    networks:
+      - backend
 
   # pkg-dc-flask-app:
   #   build: ./python/
@@ -26,4 +28,28 @@ services:
   #   working_dir: '/opt/python-mysql'
   #   depends_on:
   #     - db
+
+  pkg-dc-flask-nginx:
+    # build: ./python/
+    image: nginx:latest
+    env_file:
+      - .flask.env
+    container_name: pkg-dc-flask-nginx
+    # volumes:
+    #   - ./:/opt/python-mysql
+    tty: true
+    # working_dir: '/opt/python-mysql'
+    ports:
+      - "0.0.0.0:18080:80"
+    depends_on:
+      - pkg-dc-flask-db
+
+
+# https://docs.docker.com/compose/networking/#specify-custom-networks
 networks:
+  # frontend:
+  #   name: pkg-dc-flask-frontend
+  #   driver: custom-driver-2
+  backend:
+    name: pkg-dc-flask-backend
+    # driver: custom-driver-1

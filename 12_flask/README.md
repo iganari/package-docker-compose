@@ -32,10 +32,10 @@ cp -a _flask.env.sample .flask.env
 
 
 ### Linux の場合
-sed -e -i "s/_R_PASSWD/${_db_root_passwd}/g" .flask.env
-sed -e -i "s/_U_NAME/${_db_user_name}/g"   .flask.env
-sed -e -i "s/_U_PASSWD/${_db_user_passwd}/g" .flask.env
-sed -e -i "s/_DB_NAME/${_database_name}/g"  .flask.env
+sed -i "s/_R_PASSWD/${_db_root_passwd}/g" .flask.env
+sed -i "s/_U_NAME/${_db_user_name}/g"   .flask.env
+sed -i "s/_U_PASSWD/${_db_user_passwd}/g" .flask.env
+sed -i "s/_DB_NAME/${_database_name}/g"  .flask.env
 
 
 ### macOS の場合
@@ -43,11 +43,14 @@ sed -i '' "s/_R_PASSWD/${_db_root_passwd}/g" .flask.env
 sed -i '' "s/_U_NAME/${_db_user_name}/g"   .flask.env
 sed -i '' "s/_U_PASSWD/${_db_user_passwd}/g" .flask.env
 sed -i '' "s/_DB_NAME/${_database_name}/g"  .flask.env
+```
 
-
-
++ .flask.env の確認
 
 ```
+cat .flask.env
+```
+
 
 + Dockerコンテナの起動
 
@@ -124,4 +127,18 @@ docker-compose.yml
 mysql
 python
 readme.md
+```
+
+## [後で消す] Web での確認方法
+
+ローカルで実行している場合、 Web ブラウザから見ることが出来る
+
+```
+http://0.0.0.0
+```
+
++ 例
+
+```
+http://0.0.0.0:18080/
 ```
