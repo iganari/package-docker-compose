@@ -16,10 +16,12 @@
     + WIP
 + [11_python-mysql](https://github.com/iganari/package-docker-compose/tree/master/11_python-mysql)
     + Python 3.x.y と MySQl 8.a.b のセットです
++ [20_grafana]()
+    + Grafana を立ち上げます
 
 ## 注意点
 
-+ なるべく、素のDocker Engine, Docker Compose をご用意下さい 
++ なるべく、最新のDocker Engine, Docker Compose をご用意下さい 
 
 ## 使用するデータに関して
 
