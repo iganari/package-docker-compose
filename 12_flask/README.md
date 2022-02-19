@@ -52,19 +52,19 @@ sed -i '' "s/_DB_NAME/${_database_name}/g"  .flask.env
 + Dockerコンテナの起動
 
 ```
-sh dcs.sh up
+bash dcs.sh up
 ```
 
 + docker-composeの状況確認
 
 ```
-sh dcs.sh status
+bash dcs.sh status
 ```
 
 + docker-compose の削除
 
 ```
-sh dcs.sh delete
+bash dcs.sh delete
 ```
 
 ## 操作方法

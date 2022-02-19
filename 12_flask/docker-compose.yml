@@ -9,8 +9,6 @@ services:
     container_name: pkg-dc-flask-db
     # command: --default-authentication-plugin=mysql_native_password
     restart: always
-    # environment:
-    #   MYSQL_ROOT_PASSWORD: example
     ports:
       - "127.0.0.1:13306:3306"
     volumes:
@@ -28,3 +26,4 @@ services:
   #   working_dir: '/opt/python-mysql'
   #   depends_on:
   #     - db
+networks:
