@@ -8,6 +8,7 @@ on:
       - main
       # - 'feature/hogehoge'
       # - develop
+      - 'feature/add-github-action'
 
 jobs:
   step:
