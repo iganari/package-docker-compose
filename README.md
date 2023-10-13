@@ -11,11 +11,13 @@
 
 ## 説明
 
-+ 単一
-  + [apache-only](./apache-only)
-  + [nginx-only](./nginx-only)
-+ 複数
++ 単一コンテナ
+  + [Apache only](./apache-only)
+  + [Nginx only](./nginx-only)
+  + [Grafana only](./grafana-only)
++ 複数コンテナ
   + python
++ 特定の OSS
 
 + [01_nginx-only](https://github.com/iganari/package-docker-compose/tree/master/01_nginx-only)
     + alpineベースのNginxコンテナを利用したcompose

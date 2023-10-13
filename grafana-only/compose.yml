@@ -2,15 +2,15 @@ version: '3.6'
 
 services:
 
-  dummy:
-    image: alpine:3.9.4
-    container_name: grafana-dummy
-    tty: true
-    ports:
-      - "3000:3000"
+  # dummy:
+  #   image: alpine:3.9.4
+  #   container_name: grafana-dummy
+  #   tty: true
+  #   ports:
+  #     - "3000:3000"
 
   basic:
-    image: grafana/grafana
+    image: grafana/grafana:latest
     container_name: grafana-basic
     ports:
       - "3000:3000"

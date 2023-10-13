@@ -1,14 +1,31 @@
-# Granfana
+# Granfana only
 
-## 操作
+## 使い方
 
 + 起動方法
 
 ```
-docker-compose up -d basic
+cd grafana-only
+
+# docker compose build --no-cache
+docker compose up -d basic
 ```
 
-+ アクセス
++ 停止方法
+
+```
+docker compose stop
+```
+
++ 削除方法
+
+```
+docker compose rm --volumes -f
+```
+
+## 確認方法
+
++ Web ブラウザで確認する
 
 http://127.0.0.1:3000
 
@@ -17,6 +34,7 @@ http://127.0.0.1:3000
 ユーザ名 | `admin`
 --- | ---
 パスワード | `admin`
+
 
 ##  注意点
 

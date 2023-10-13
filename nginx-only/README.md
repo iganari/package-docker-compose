@@ -23,7 +23,6 @@ docker compose ps
 docker compose exec -it web /bin/ash
 ```
 
-
 + 停止方法
 
 ```
@@ -36,13 +35,12 @@ docker compose stop
 docker compose rm --volumes -f
 ```
 
-
 ## 確認方法
 
-```
-### ブラウザで以下を表示する
++ Web ブラウザで確認する
+
 http://127.0.0.1
-```
+
 
 ## 以下のサンプルをお借りしています
 
