@@ -22,6 +22,7 @@
   + [Python + MySQL](./mysql-python/)
   + [Nginx + Flask + MySQL](./mysql-flask-nginx/)
   + [Nginx loadbalancer](./nginx-loadbalancer/)
+  + [Cloud SQL Auth Procy by Google Cloud](./gc-cloud-sql-auth-proxy/)
 
 ## 注意点
 
