@@ -18,6 +18,7 @@
 + 複数コンテナ
   + [Nginx + Granafa](./grafana-nginx/)
   + [SSL + Nginx + Granafa](./grafana-nginx-ssl/)
+  + [Nginx + PHP](./php-nginx/)
 + 特定の OSS
 
 TBD

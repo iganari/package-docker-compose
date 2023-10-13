@@ -1,4 +1,11 @@
-# nginx php
+# Nginx + PHP
+
+```
+#
+# 修正中です
+#
+```
+
 
 ## compose build script
 
