@@ -1,0 +1,8 @@
+services:
+  web:
+    build: ./web/
+    container_name: nginx-only-web
+    ports:
+      - "80:80"
+    volumes:
+      - ./logs/nginx:/var/log/nginx
