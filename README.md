@@ -4,7 +4,18 @@
 
 + Docker Compose のサンプル集です
 
++ 公式ドキュメント
+  + https://docs.docker.com/compose/
++ 公式サンプル
+  + https://github.com/docker/awesome-compose
+
 ## 説明
+
++ 単一
+  + [apache-only](./apache-only)
+  + [nginx-only](./nginx-only)
++ 複数
+  + python
 
 + [01_nginx-only](https://github.com/iganari/package-docker-compose/tree/master/01_nginx-only)
     + alpineベースのNginxコンテナを利用したcompose
