@@ -20,6 +20,7 @@
   + [SSL + Nginx + Granafa](./grafana-nginx-ssl/)
   + [Nginx + PHP](./php-nginx/)
   + [Python + MySQL](./mysql-python/)
+  + [Nginx + Flask + MySQL](./mysql-flask-nginx/)
 + 特定の OSS
 
 TBD
