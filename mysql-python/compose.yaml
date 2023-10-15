@@ -1,5 +1,3 @@
-version: '3.3'
-
 services:
 
   db:
@@ -7,14 +5,13 @@ services:
     env_file: 
       - .python-mysql.env
     container_name: python-mysql-db
-    # command: --default-authentication-plugin=mysql_native_password
+    command: --default-authentication-plugin=mysql_native_password      ### Important!! -> https://hub.docker.com/_/mysql
     restart: always
     # environment:
     #   MYSQL_ROOT_PASSWORD: example
     volumes:
       - ./mysql/files/etc/mysql/conf.d/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
       - ./mysql/files/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-
 
   app:
     build: ./python/
