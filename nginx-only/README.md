@@ -5,7 +5,7 @@
 + 起動方法
 
 ```
-cd nginx-only
+cd ./nginx-only
 
 docker compose build --no-cache
 docker compose up -d
