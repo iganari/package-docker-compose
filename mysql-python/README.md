@@ -12,7 +12,13 @@ cd ./mysql-python
 export _MYSQL_ROOT_PASSPD='hogehogeFUGAFUGA'
 
 cp -a .python-mysql.env.sample .python-mysql.env
-sed -i '' "s/_DB_R_PSWD/${_MYSQL_ROOT_PASSPD}/g" .python-mysql.env           ### for macOS
+
+
+### Linux の場合
+sed -i "s/_DB_R_PSWD/${_MYSQL_ROOT_PASSPD}/g" .python-mysql.env
+
+### macOS の場合
+sed -i '' "s/_DB_R_PSWD/${_MYSQL_ROOT_PASSPD}/g" .python-mysql.env
 ```
 
 + 起動方法
