@@ -27,3 +27,23 @@ http://127.0.0.1
 ## memo
 
 https://board.iganari.com
+
+## 停止・削除方法
+
++ 停止方法
+
+```
+docker compose stop
+```
+
++ 削除方法
+
+```
+docker compose rm --volumes -f
+```
+
++ ローカルの Docker イメージの削除
+
+```
+TBD
+```
