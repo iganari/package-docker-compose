@@ -1,5 +1,7 @@
-ARG _TAG='3.7.2-alpine3.9'
+ARG _TAG='3.11.6-alpine3.18'
 FROM python:${_TAG}
+# https://hub.docker.com/_/python/tags?page=1&name=-alpine
+
 
 ADD   . /var/tmp
 WORKDIR /vat/tmp

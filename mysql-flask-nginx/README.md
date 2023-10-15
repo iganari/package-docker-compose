@@ -10,7 +10,7 @@
 ## 起動・確認方法
 
 + env ファイルの作成
-  + Docker Compose の [env_file](https://docs.docker.com/compose/environment-variables/) 機能を使っています
+  + Docker Compose の [env_file](https://docs.docker.com/compose/environment-variables/set-environment-variables/) 機能を使っています
   + DB ( MySQL ) のユーザとパスワードを決めます
   + 設定する環境変数は以下 ( [Docker Hub | MySQL](https://hub.docker.com/_/mysql?tab=description))
     + `MYSQL_ROOT_PASSWORD`
@@ -25,10 +25,12 @@ export _db_user_passwd='Secure Password for MySQL USER'
 export _database_name='pkg_dc_flask'
 
 
+### Sample
+cd ./mysql-flask-nginx
 
-export _db_root_passwd='hogehogehogehoge'
+export _db_root_passwd='hogehogeFUGAFUGA'
 export _db_user_name='pkg_dc_flask'
-export _db_user_passwd='fugafugafuga'
+export _db_user_passwd='HOGEHOGEfugafuga'
 export _database_name='pkg_dc_flask'
 ```
 
@@ -57,7 +59,6 @@ sed -i '' "s/_DB_NAME/${_database_name}/g"  .flask.env
 ```
 cat .flask.env
 ```
-
 
 + Dockerコンテナの起動
 
