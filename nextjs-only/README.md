@@ -1,4 +1,4 @@
-# Next.js　Only
+# Next.js Only
 
 ## 公式チュートリアル
 

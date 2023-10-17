@@ -16,6 +16,7 @@
   + [Nginx only](./nginx-only)
   + [Grafana only](./grafana-only)
   + [Node.js Only](./nodejs-only/)
+  + [Next.js Only](./nextjs-only/)
 + 複数コンテナ
   + [Nginx + Granafa](./grafana-nginx/)
   + [SSL + Nginx + Granafa](./grafana-nginx-ssl/)
