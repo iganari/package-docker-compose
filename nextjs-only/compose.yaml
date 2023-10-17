@@ -1,0 +1,11 @@
+services:
+  nextjs:
+    build: ./nodejs
+    container_name: nextjs
+    tty: true
+    ports:
+      - "3000:3000"
+    command:
+      npm run dev
+    # volumes:
+    #   - ./logs/nginx:/var/log/nginx
